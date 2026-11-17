@@ -1,0 +1,48 @@
+{
+  "name": "@biosphere-labs/utterson-agent",
+  "version": "0.7.0",
+  "description": "A harness for answering questions about long inputs: the model writes JavaScript that searches them in a sandbox, with sub-model calls, decision-model filtering and strategy routing.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "AGENTS.md",
+    "EVENTS.md",
+    "CHANGELOG.md",
+    "llms.txt"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && cp src/sandbox/child.mjs dist/sandbox/child.mjs",
+    "prepare": "npm run build",
+    "test": "node --conditions=source --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc -p tsconfig.json",
+    "providers": "node scripts/update-providers.ts",
+    "clean-check": "sh scripts/clean-check.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biosphere-labs/utterson.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.323",
+    "@anthropic-ai/sdk": "1.8.0",
+    "@openai/codex-sdk": "0.167.2"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "^24.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+# @biosphere-labs/utterson-agent
+
+> A TypeScript library for answering questions about long inputs. A model writes JavaScript to search the input in a
+> sandbox, makes cheap sub-calls, and a decision model picks the strategy first. One entry point: `utterson({ model,
+> task, keys: { model, decisions } }).run([text(doc), value('question', q)])`.
+
+## Docs
+
+- [AGENTS.md](AGENTS.md): how to call it, the rules that cause errors, reading results, common adjustments
+- [README.md](README.md): install, options, composing the parts with createRlm, how it works
+- [EVENTS.md](EVENTS.md): the versioned event stream (model_call per call, delivery and error rules)
+- [dist/index.d.ts](dist/index.d.ts): every export, with types and doc comments
+
+## Key exports
+
+- utterson(options), UttersonConfigError, SUBSCRIPTION, modelFor(name, key), providerOf(name)
+- createRlm(config), text(value, options), value(name, x), DEFAULT_LIMITS
+- Adapters: claudeAgentSdk, anthropicApi, openAiCompatible (OPENAI_COMPATIBLE_PRESETS, CATALOG_PROVIDERS, resolveBaseUrl), codexSdk, antigravityAcp, grokCli, scripted
+- Worker: claudeWorker({ cwd, model }) gives the model's code `await worker(brief)`, a Claude Code agent that edits files and runs commands in cwd; WORKER_DEFAULT_ALLOW, WorkerReport
+- Decisions: openRouterDecisions, decisionTools (filter_chunks), judgeChunks, chunkText, datedEnvKey
+- Advisor: decisionAdvisor, chooseStrategy, defaultStrategies, preparedStrategies, surveyPrepare
+- Events: rlm.on(kind, handler), events option, EVENT_SCHEMA_VERSION, eventBus, RlmEvent, LoggedEvent, CallRecord
+- Logging (event subscribers): consoleLog, jsonlLog, memoryLog, teeLog, silentLog
