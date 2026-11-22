@@ -8,6 +8,14 @@ A TypeScript library for answering questions about long inputs (books, contracts
 - A decision model (typed yes/no answers, cents per book) profiles each problem, picks a strategy and filters the text
   before the model starts.
 
+## What’s the point?
+
+Utterson outperformed Opus 5.5 on three tasks that required an answer across an entire dataset.
+
+- **Find every investor who came out ahead.** Given a 15,546-line synthetic bank ledger, Utterson listed all 113 investors who received more than they paid in. Opus estimated about 150 and didn’t produce the list.
+- **Count accurately as the input gets longer.** On the OOLONG benchmark, as the input increased from 140,000 to 556,000 tokens, Opus’s average counting error rose from 17% to 33%. Utterson’s held at 11%.
+- **List every matching pair.** On 15 OOLONG-Pairs tasks where the answer contained more than 1,000 pairs, Utterson scored 89.4 out of 100 for returning the right pairs and avoiding wrong ones. Opus scored 27.1 on the same tasks.
+
 Agents: read [AGENTS.md](AGENTS.md); [llms.txt](llms.txt) is the index.
 
 ## Install
