@@ -1,4 +1,5 @@
-**This has been made obsolete by Claude Code's `code mode` experimental flag.** 
+> [!CAUTION]
+> **Obsolete.** This has been made obsolete by Claude Code's `code mode` experimental flag.
 
 # @biosphere-labs/utterson-agent
 
