@@ -1,3 +1,5 @@
+**This has been made obsolete by Claude Code's `code mode` experimental flag.** 
+
 # @biosphere-labs/utterson-agent
 
 A TypeScript library for answering questions about long inputs (books, contracts, document sets, logs).
